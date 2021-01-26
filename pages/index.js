@@ -31,13 +31,13 @@ export default function Home() {
         <meta property="twitter:url" content="https://crazyquiz.allancfe.vercel.app/"/>
         <meta name="twitter:title" content={db.title}/>
         <meta name="twitter:description" content={db.description}/>
-        <meta name="twitter:image" content={process.env.public_url + db.bg}/>
+        <meta name="twitter:image" content={"https://crazyquiz.allancfe.vercel.app/" + db.bg}/>
 
         <meta property="og:title" content={db.title}/>
         <meta property="og:description" content={db.description}/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://crazyquiz.allancfe.vercel.app/"/>
-        <meta property="og:image" content={process.env.public_url + db.bg}/>
+        <meta property="og:image" content={"https://crazyquiz.allancfe.vercel.app"+ db.bg}/>
       </Head>
       <QuizContainer>
         <QuizLogo />
