@@ -5,6 +5,7 @@ import QuizLogo from '../src/components/QuizLogo'
 import QuizBackground from '../src/components/QuizBackground'
 import Footer from '../src/components/Footer'
 import GitHubCorner from '../src/components/GitHubCorner'
+import Head from 'next/head'
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -20,6 +21,24 @@ export const QuizContainer = styled.div`
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
+
+      <Head>
+        <title>{db.title}</title>
+        <meta name="description" content={db.description}></meta>
+
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:domain" content="crazyquiz.allancfe.vercel.app"/>
+        <meta property="twitter:url" content="https://crazyquiz.allancfe.vercel.app/"/>
+        <meta name="twitter:title" content={db.title}/>
+        <meta name="twitter:description" content={db.description}/>
+        <meta name="twitter:image" content={process.env.public_url + db.bg}/>
+
+        <meta property="og:title" content={db.title}/>
+        <meta property="og:description" content={db.description}/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://crazyquiz.allancfe.vercel.app/"/>
+        <meta property="og:image" content={process.env.public_url + db.bg}/>
+      </Head>
       <QuizContainer>
         <QuizLogo />
         <Widget>
