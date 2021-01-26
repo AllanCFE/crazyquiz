@@ -1,18 +1,10 @@
 import styled from 'styled-components'
-import db from '../db.json'
+import db from '../db.json';
 import Widget from '../src/components/Widget'
-
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.secondary};
-`
-
-const BackgroundImage = styled.div`
-  background-image: url(${db.bg});
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-`
+import QuizLogo from '../src/components/QuizLogo'
+import QuizBackground from '../src/components/QuizBackground'
+import Footer from '../src/components/Footer'
+import GitHubCorner from '../src/components/GitHubCorner'
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -23,26 +15,32 @@ export const QuizContainer = styled.div`
     margin: auto;
     padding: 15px;
   }
-`
+`;
 
 export default function Home() {
   return (
-    <BackgroundImage>
+    <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>Crazy Quiz</h1>
+            <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>Arroz</p>
+            <p>{db.description}</p>
           </Widget.Content>
         </Widget>
+
         <Widget>
           <Widget.Content>
-            Abacate 2
+            <h1>Quizes da Galera</h1>
+
+            <p>lorem ipsum dolor sit amet...</p>
           </Widget.Content>
         </Widget>
+        <Footer />
       </QuizContainer>
-    </BackgroundImage>
-  )
+      <GitHubCorner projectUrl="https://github.com/AllanCFE" />
+    </QuizBackground>
+  );
 }
